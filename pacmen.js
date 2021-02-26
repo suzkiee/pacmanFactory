@@ -60,4 +60,6 @@ function checkCollisions(item){
   item.velocity.y = item.velocity.y;
 }
 
-function makeOne()
+function makeOne(){
+  pacMen.push(makePac());
+}
