@@ -26,7 +26,7 @@ function makePac(){
   newImg.wdith = 100;
   newImg.style.left = position.x;
   newImg.style.top = position.y;
-  game.appendChild('newImg');
+  game.appendChild(newImg);
 
   return {
     position,
@@ -36,14 +36,14 @@ function makePac(){
 }
 
 function update() {
-  pacMen.forEach((item)) => {
+  pacMen.forEach((item) => {
     checkCollisions(item);
     item.position.x += item.velocity.x;
     item.position.y += item.velocity.y;
 
     item.newImg.style.left = item.position.x;
     item.newImg.style.top = item.position.y;
-  };
+  });
   setTimeout(update, 20);
 }
 
@@ -53,11 +53,11 @@ function checkCollisions(item){
   let positionX = item.position.x + item.velocity.x + item.newImg.width;
   let positionY = item.position.y + item.velocity.y + item.newImg.height;
 
-  if(positionX > pageWidth || item.position.x + item.veloxcity.x < 0)
+  if(positionX > pageWidth || item.position.x + item.velocity.x < 0)
   item.velocity.x = -item.velocity.x;
 
-  if(positionY > pageHeight || item.position.y + item.position.y < 0)
-  item.velocity.y = item.velocity.y;
+  if(positionY > pageHeight || item.position.y + item.velocity.y < 0)
+  item.velocity.y = -item.velocity.y;
 }
 
 function makeOne(){
